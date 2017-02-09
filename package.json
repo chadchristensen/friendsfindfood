@@ -1,0 +1,19 @@
+{
+  "name": "friendsfindfood",
+  "version": "1.0.0",
+  "description": "Web app for friends to find a place to eat",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chadchristensen/friendsfindfood.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chadchristensen/friendsfindfood/issues"
+  },
+  "homepage": "https://github.com/chadchristensen/friendsfindfood#readme"
+}
