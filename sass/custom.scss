@@ -1,4 +1,22 @@
 body {
-  background-color: pink;
+  background-color: #fefeff;
   font-family: 'Roboto', sans-serif;
+
+  nav {
+    .container {
+      .navbar-collapse {
+        .navbar-nav {
+          .profile-image {
+            height: 20px;
+            width: 20px;
+            border-radius: 100px;
+          }
+        }
+      }
+    }
+  } // end of nav
+
+  .event-row {
+    margin-bottom: 50px;
+  }
 }
