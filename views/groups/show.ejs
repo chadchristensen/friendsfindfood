@@ -1,21 +1,30 @@
-<h1><%= group.title %></h1>
-<div class="well well-sm">
-  <h3><%= group.time %></h3>
-  <h3><%= group.location %></h3>
+<h1 class="text-center"><%= group.title %></h1>
+<div class="well well-sm event-info-show">
+  <div class="row">
+    <div class="col-md-6 text-left">
+      <h4><%= group.location %></h4>
+    </div>
+    <div class="col-md-6 text-right">
+      <h4><%= group.time %></h4>
+    </div>
+    <div class="col-md-12">
+      <p>The is going to be the best Friday ever.  Go to vote below</p>
+    </div>
+  </div>
   <div class="group-members">
-    <img src="" alt="">
-    <img src="" alt="">
-    <img src="" alt="">
-    <img src="" alt="">
+    <img class="img-circle" src="http://lorempixel.com/50/50/people/1" alt="">
+    <img class="img-circle" src="http://lorempixel.com/50/50/people/2" alt="">
+    <img class="img-circle" src="http://lorempixel.com/50/50/people/3" alt="">
+    <img class="img-circle" src="http://lorempixel.com/50/50/people/4" alt="">
   </div>
 </div>
 
-<div class="">
-  <button type="button" class="btn btn-default">
+<div class="text-center group-buttons">
+  <button type="button" class="btn btn-primary active">
     Restaurants
   </button>
   <button type="button" class="btn btn-default">
-    Group
+    Suggestions
   </button>
 </div>
 <!-- <form class="" action="index.html" method="GET">
@@ -46,20 +55,24 @@
 </div>
 
 <h1>Suggest restaurants</h1>
-<ul>
+<div class="row">
   <% suggestrests.forEach(function(suggestrest) { %>
-    <li>
-      <h2>
-        <a href="<%= suggestrest.url %>"><%= suggestrest.restName %></a>
-      </h2>
-      <form method="POST" action="/groups/recommendations/thumbup" style="display:inline-block">
-        <input type="hidden" class="form-control" name="id" value="<%= suggestrest.id %>">
-        <button class="btn btn-primary glyphicon glyphicon-thumbs-up" name="thumbup"></button>
-      </form>
-      <form method="POST" action="/groups/recommendations/thumbdown" style="display:inline-block">
-        <input type="hidden" class="form-control" name="id" value="<%= suggestrest.id %>">
-        <button class="btn btn-primary glyphicon glyphicon-thumbs-down" name="thumbdown"></button>
-      </form>
-    </li>
+    <div class="col-md-6">
+      <div class="well">
+        <h2>
+          <a href="<%= suggestrest.url %>"><%= suggestrest.restName %></a>
+        </h2>
+        <p>Suggested By: Chad</p>
+        <h4>Do you want to go here?</h4>
+        <form method="POST" action="/groups/recommendations/thumbup" style="display:inline-block">
+          <input type="hidden" class="form-control" name="id" value="<%= suggestrest.id %>">
+          <button class="btn btn-primary glyphicon glyphicon-thumbs-up" name="thumbup"></button>
+        </form>
+        <form method="POST" action="/groups/recommendations/thumbdown" style="display:inline-block">
+          <input type="hidden" class="form-control" name="id" value="<%= suggestrest.id %>">
+          <button class="btn btn-primary glyphicon glyphicon-thumbs-down" name="thumbdown"></button>
+        </form>
+      </div>
+    </div>
   <% }); %>
-</ul>
+</div>

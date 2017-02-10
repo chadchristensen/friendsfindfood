@@ -5839,6 +5839,12 @@ body {
           color: white; }
     body .event-row h2 {
       margin-bottom: 30px; }
+  body .group-buttons {
+    margin-bottom: 25px; }
+  body .event-info-show {
+    padding: 20px 50px; }
+  body .group-members img {
+    margin-right: 10px; }
   body #createEvent {
     color: white;
     text-decoration: none; }
