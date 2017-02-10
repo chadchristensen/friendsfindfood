@@ -63,7 +63,9 @@ router.post('/recommendations', function(req, res) {
     'groupId':req.body.groupId,
     'restName': req.body.name,
     'url': req.body.url,
-    'rate': parseFloat(req.body.rating)
+    'rate': parseFloat(req.body.rating),
+    thumbup:0,
+    thumbdown:0
   })
   .then(function(group) {
     res.redirect('/groups/' + group.groupId);
@@ -78,7 +80,24 @@ router.post('/recommendations', function(req, res) {
 router.post('/recommendations/thumbup', function(req, res) {
   console.log('recommendation body:', req.body);
   db.recommendations.findById(req.body.id).then(function(recommendation) {
-    console.log('recommendation id:', req.body.id);
+    console.log('recommendation', recommendation);
+    recommendation.thumbup=recommendation.thumbup+1;
+    recommendation.save().then(function(){
+      res.redirect('/groups/' + recommendation.groupId)
+    })
+
+  });
+});
+
+router.post('/recommendations/thumbdown', function(req, res) {
+  console.log('recommendation body:', req.body);
+  db.recommendations.findById(req.body.id).then(function(recommendation) {
+    console.log('recommendation', recommendation);
+    recommendation.thumbdown=recommendation.thumbdown+1;
+    recommendation.save().then(function(){
+      res.redirect('/groups/' + recommendation.groupId)
+    })
+
   });
 });
 module.exports = router;
