@@ -17,6 +17,44 @@ body {
   } // end of nav
 
   .event-row {
-    margin-bottom: 50px;
+  padding: 25px;
+
+    .event-link {
+
+    }
+    .event {
+      position: relative;
+      border: 1px solid #ddd;
+      transition: all .2s;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+
+      .event-info {
+        width: 100%;
+        background-color: rgba(0,0,0,.6);
+        color: white;
+        position: absolute;
+        bottom: 0;
+
+        a {
+          color: white;
+        }
+      }
+    }
+
+    h2 {
+      margin-bottom: 30px;
+    }
+  }
+
+  #createEvent {
+    color: white;
+    text-decoration: none;
+  }
+
+  .group-title {
+    font-size: 24px;
   }
 }

@@ -13,10 +13,6 @@ html {
 body {
   margin: 0; }
 
-#createEvent {
-  color: white;
-}
-
 article,
 aside,
 details,
@@ -5826,6 +5822,27 @@ body {
     width: 20px;
     border-radius: 100px; }
   body .event-row {
-    margin-bottom: 50px; }
+    padding: 25px; }
+    body .event-row .event {
+      position: relative;
+      border: 1px solid #ddd;
+      transition: all .2s; }
+      body .event-row .event:hover {
+        transform: scale(1.1); }
+      body .event-row .event .event-info {
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.6);
+        color: white;
+        position: absolute;
+        bottom: 0; }
+        body .event-row .event .event-info a {
+          color: white; }
+    body .event-row h2 {
+      margin-bottom: 30px; }
+  body #createEvent {
+    color: white;
+    text-decoration: none; }
+  body .group-title {
+    font-size: 24px; }
 
 /*# sourceMappingURL=style.css.map */

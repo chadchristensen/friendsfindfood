@@ -1,32 +1,40 @@
 <div class="row">
   <div class="col-md-12 text-center">
     <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-      <a href="/groups/new" id='createEvent'> <i class="fa fa-plus"></i> Create Event</a>
+      <a href="/groups/new" id='createEvent'> <i class="fa fa-plus"></i> Create New Event</a>
     </button>
   </div>
 </div>
 <div class="row">
   <div class="event-row">
-    <h2>Upcoming</h2>
+    <h2 class="text-center">Upcoming Events</h2>
     <div class="col-md-12 text-center">
       <% groups.forEach(function(group) { %>
-        <div class="col-md-3">
-          <h2>
-            <a href="/groups/<%= group.id %>"><%= group.title %></a>
-          </h2>
-          <p>
-            <strong><%= group.time %></strong>
-          </p>
-          <% var i= Math.floor(Math.random()*9) %>
-          <img class="img-responsive" src=<%- "http://lorempixel.com/400/300/food/"+i %> alt="">
-        </div>
+          <div class="col-md-3">
+            <a class="event-link" href="/groups/<%= group.id %>">
+              <div class="event">
+                <% var i = Math.floor(Math.random()*9) %>
+                <img class="img-responsive" src=<%- "http://lorempixel.com/400/300/food/"+i %> alt="">
+                <div class="event-info">
+                  <div class="text-center">
+                    <div class="group-title">
+                      <%= group.title %>
+                    </div>
+                    <p>
+                      <strong><%= group.time %></strong>
+                    </p>
+                  </div>
+                </div>
+              </div> <!-- End of event -->
+            </a>
+          </div>
       <% }); %>
     </div>
   </div>
 </div>
 <div class="row">
   <div class="event-row">
-    <h2>Past</h2>
+    <h2 class="text-center">Past Events</h2>
     <div class="col-md-12 text-center">
       <div class="col-md-3">
         <img class="img-responsive" src="http://lorempixel.com/400/300/food/5" alt="">
