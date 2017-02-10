@@ -59,7 +59,7 @@ router.get('/:id', function(req, res) {
 
 router.post('/recommendations', function(req, res) {
   //console.log('req.body',req.body);
-  db.recommendations.findOrCreate({
+  db.recommendations.create({
     'groupId':req.body.groupId,
     'restName': req.body.name,
     'url': req.body.url,
@@ -71,6 +71,14 @@ router.post('/recommendations', function(req, res) {
   .catch(function(error) {
     console.log(error);
     res.status(400).render('main/404');
+  });
+});
+
+
+router.post('/recommendations/thumbup', function(req, res) {
+  console.log('recommendation body:', req.body);
+  db.recommendations.findById(req.body.id).then(function(recommendation) {
+    console.log('recommendation id:', req.body.id);
   });
 });
 module.exports = router;

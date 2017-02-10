@@ -1,24 +1,49 @@
 <h1><%= group.title %></h1>
-<h1><%= group.time %></h1>
-<h1><%= group.location %></h1>
+<div class="well well-sm">
+  <h3><%= group.time %></h3>
+  <h3><%= group.location %></h3>
+  <div class="group-members">
+    <img src="" alt="">
+    <img src="" alt="">
+    <img src="" alt="">
+    <img src="" alt="">
+  </div>
+</div>
 
-<ul>
-  <% restaurants.forEach(function(restaurant) { %>
-    <li>
-      <h2>
-        <a href="<%= restaurant.url %>"><%= restaurant.name %></a>
-        <strong>rating: <%= restaurant.rating %></strong>
-      </h2>
-      <form action="/groups/recommendations" method="POST">
-        <input type="hidden" class="form-control" name="groupId" value="<%= group.id %>">
-        <input type="hidden" class="form-control" name="name" value="<%= restaurant.name %>">
-        <input type="hidden" class="form-control" name="url" value="<%= restaurant.url %>">
-        <input type="hidden" class="form-control" name="rating" value="<%= restaurant.rating %>">
-        <input type="submit" class="btn btn-primary" value="Suggest">
-      </form>
-    </li>
-  <% }); %>
-</ul>
+<div class="">
+  <button type="button" class="btn btn-default">
+    Restaurants
+  </button>
+  <button type="button" class="btn btn-default">
+    Group
+  </button>
+</div>
+<!-- <form class="" action="index.html" method="GET">
+  <div class="form-group">
+    <label for=""></label>
+    <input type="search" class="form-control" id="" placeholder="">
+  </div>
+</form> -->
+<div class="row">
+    <% restaurants.forEach(function(restaurant) { %>
+      <div class="col-md-6">
+        <div class="well">
+          <h2>
+            <a href="<%= restaurant.url %>"><%= restaurant.name %></a>
+          </h2>
+          <p>This is a description of the restaurant lorem ipsum.</p>
+          <strong>rating: <%= restaurant.rating %></strong>
+          <form action="/groups/recommendations" method="POST">
+            <input type="hidden" class="form-control" name="groupId" value="<%= group.id %>">
+            <input type="hidden" class="form-control" name="name" value="<%= restaurant.name %>">
+            <input type="hidden" class="form-control" name="url" value="<%= restaurant.url %>">
+            <input type="hidden" class="form-control" name="rating" value="<%= restaurant.rating %>">
+            <input type="submit" class="btn btn-primary" value="Suggest">
+          </form>
+        </div>
+      </div>
+      <% }); %>
+</div>
 
 <h1>Suggest restaurants</h1>
 <ul>
@@ -26,8 +51,15 @@
     <li>
       <h2>
         <a href="<%= suggestrest.url %>"><%= suggestrest.restName %></a>
-        <strong>rating: <%= suggestrest.rate %></strong>
       </h2>
+      <form method="POST" action="/groups/recommendations/thumbup" style="display:inline-block">
+        <input type="hidden" class="form-control" name="id" value="<%= suggestrest.id %>">
+        <button class="btn btn-primary glyphicon glyphicon-thumbs-up" name="thumbup"></button>
+      </form>
+      <form method="POST" action="/groups/recommendations/thumbdown" style="display:inline-block">
+        <input type="hidden" class="form-control" name="id" value="<%= suggestrest.id %>">
+        <button class="btn btn-primary glyphicon glyphicon-thumbs-down" name="thumbdown"></button>
+      </form>
     </li>
   <% }); %>
 </ul>
