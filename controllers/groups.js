@@ -38,8 +38,15 @@ router.get('/:id', function(req, res) {
     if (!group) throw Error();
     yelp.search({ term: 'food', location: group.location, limit: 10 })
     .then(function (restaurants) {
-      console.log(restaurants);
-      res.render('groups/show', { group: group, restaurants:restaurants.businesses});
+      //console.log(restaurants);
+      yelprestaurants=restaurants.businesses;
+      //console.log('yelprestaurants',yelprestaurants);
+      db.recommendations.findAll({
+        where: { groupId: req.params.id },
+      }).then(function (suggestrests) {
+        console.log('suggestrests',suggestrests);
+        res.render('groups/show', { group: group, restaurants:yelprestaurants, suggestrests:suggestrests});
+      })
     })
     .catch(function (err) {
       console.error(err);
@@ -50,4 +57,20 @@ router.get('/:id', function(req, res) {
   });
 });
 
+router.post('/recommendations', function(req, res) {
+  //console.log('req.body',req.body);
+  db.recommendations.findOrCreate({
+    'groupId':req.body.groupId,
+    'restName': req.body.name,
+    'url': req.body.url,
+    'rate': parseFloat(req.body.rating)
+  })
+  .then(function(group) {
+    res.redirect('/groups/' + group.groupId);
+  })
+  .catch(function(error) {
+    console.log(error);
+    res.status(400).render('main/404');
+  });
+});
 module.exports = router;

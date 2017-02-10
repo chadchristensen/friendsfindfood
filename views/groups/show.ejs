@@ -9,6 +9,25 @@
         <a href="<%= restaurant.url %>"><%= restaurant.name %></a>
         <strong>rating: <%= restaurant.rating %></strong>
       </h2>
+      <form action="/groups/recommendations" method="POST">
+        <input type="hidden" class="form-control" name="groupId" value="<%= group.id %>">
+        <input type="hidden" class="form-control" name="name" value="<%= restaurant.name %>">
+        <input type="hidden" class="form-control" name="url" value="<%= restaurant.url %>">
+        <input type="hidden" class="form-control" name="rating" value="<%= restaurant.rating %>">
+        <input type="submit" class="btn btn-primary" value="Suggest">
+      </form>
+    </li>
+  <% }); %>
+</ul>
+
+<h1>Suggest restaurants</h1>
+<ul>
+  <% suggestrests.forEach(function(suggestrest) { %>
+    <li>
+      <h2>
+        <a href="<%= suggestrest.url %>"><%= suggestrest.restName %></a>
+        <strong>rating: <%= suggestrest.rate %></strong>
+      </h2>
     </li>
   <% }); %>
 </ul>
