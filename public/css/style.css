@@ -5850,5 +5850,7 @@ body {
     text-decoration: none; }
   body .group-title {
     font-size: 24px; }
+  body .card-header .col-md-6 {
+    height: 30px; }
 
 /*# sourceMappingURL=style.css.map */

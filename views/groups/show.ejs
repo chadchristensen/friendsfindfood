@@ -20,10 +20,10 @@
 </div>
 
 <div class="text-center group-buttons">
-  <button type="button" class="btn btn-primary active">
+  <button type="button" id="restaurant-button" class="btn btn-primary">
     Restaurants
   </button>
-  <button type="button" class="btn btn-default">
+  <button type="button" id="suggestion-button" class="btn btn-primary">
     Suggestions
   </button>
 </div>
@@ -33,7 +33,7 @@
     <input type="search" class="form-control" id="" placeholder="">
   </div>
 </form> -->
-<div class="row">
+<div class="row" id="restaurant-section">
     <% restaurants.forEach(function(restaurant) { %>
       <div class="col-md-6">
         <div class="well">
@@ -54,28 +54,41 @@
       <% }); %>
 </div>
 
-<h1>Suggest restaurants</h1>
-<div class="row">
+<div class="row" id="suggestion-section">
   <% suggestrests.forEach(function(suggestrest) { %>
     <div class="col-md-6">
       <div class="well">
-        <h2>
-          <a href="<%= suggestrest.url %>"><%= suggestrest.restName %></a>
-        </h2>
+        <div class="row">
+          <div class="card-header">
+            <div class="col-md-10">
+              <div class="group-title">
+                <a href="<%= suggestrest.url %>"><%= suggestrest.restName %></a>
+              </div>
+            </div>
+            <div class="col-md-2 text-right">
+              Votes: <%= suggestrest.thumbup %>
+            </div>
+          </div>
+        </div>
+
         <p>Suggested By: Chad</p>
+        <p class="event-description">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt
+          ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+          laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in.
         <h4>Do you want to go here?</h4>
-        <form method="POST" action="/groups/recommendations/thumbup" style="display:inline-block">
+        <form id="vote-form" method="POST" action="/groups/recommendations/thumbup" style="display:inline-block">
           <input type="hidden" class="form-control" name="id" value="<%= suggestrest.id %>">
           <button class="btn btn-primary glyphicon glyphicon-thumbs-up" name="thumbup"></button>
         </form>
-        <form method="POST" action="/groups/recommendations/thumbdown" style="display:inline-block">
+        <!-- <form method="POST" action="/groups/recommendations/thumbdown" style="display:inline-block">
           <input type="hidden" class="form-control" name="id" value="<%= suggestrest.id %>">
           <button class="btn btn-primary glyphicon glyphicon-thumbs-down" name="thumbdown"></button>
-        </form>
-        <div>
-          Vote: <%= suggestrest.thumbup %>
-          Dislike: <%= suggestrest.thumbdown %>
-        </div>
+        </form> -->
+
+        <!-- <div class="col-md-6">
+          <a href="#" class="btn btn-default">Comment</a>
+        </div> -->
       </div>
     </div>
   <% }); %>
