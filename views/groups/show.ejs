@@ -60,6 +60,10 @@
         <input type="hidden" class="form-control" name="id" value="<%= suggestrest.id %>">
         <button class="btn btn-primary glyphicon glyphicon-thumbs-down" name="thumbdown"></button>
       </form>
+      <div>
+        Vote: <%= suggestrest.thumbup %>
+        Dislike: <%= suggestrest.thumbdown %>
+      </div>
     </li>
   <% }); %>
 </ul>
