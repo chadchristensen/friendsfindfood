@@ -1,7 +1,7 @@
 {
   "name": "friendsfindfood",
   "version": "1.0.0",
-  "description": "Web app for friends to find a place to eat",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
@@ -53,7 +53,8 @@
     "pg": "^5.0.0",
     "pg-hstore": "^2.3.2",
     "sequelize": "^3.23.3",
-    "sequelize-cli": "^2.5.1"
+    "sequelize-cli": "^2.5.1",
+    "yelp": "^1.0.2"
   },
   "repository": {
     "type": "git",
@@ -63,6 +64,5 @@
   "bugs": {
     "url": "https://github.com/weirui222/inner-circle/issues"
   },
-  "homepage": "https://github.com/weirui222/inner-circle#readme",
-  "description": ""
+  "homepage": "https://github.com/weirui222/inner-circle#readme"
 }

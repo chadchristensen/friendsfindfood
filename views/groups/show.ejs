@@ -1,0 +1,14 @@
+<h1><%= group.title %></h1>
+<h1><%= group.time %></h1>
+<h1><%= group.location %></h1>
+
+<ul>
+  <% restaurants.forEach(function(restaurant) { %>
+    <li>
+      <h2>
+        <a href="<%= restaurant.url %>"><%= restaurant.name %></a>
+        <strong>rating: <%= restaurant.rating %></strong>
+      </h2>
+    </li>
+  <% }); %>
+</ul>

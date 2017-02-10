@@ -1,0 +1,17 @@
+<div class="row">
+  <div class="col-sm-8">
+    <h1>Groups</h1>
+
+    <% groups.forEach(function(group) { %>
+      <div class="well">
+        <h2>
+          <a href="/groups/<%= group.id %>"><%= group.title %></a>
+        </h2>
+        <p>
+          <strong><%= group.time %></strong>
+        </p>
+      </div>
+    <% }); %>
+
+  </div>
+</div>
